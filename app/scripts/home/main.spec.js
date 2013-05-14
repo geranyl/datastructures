@@ -6,7 +6,7 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('datastructuresApp'));
 
   var MainCtrl,
-    scope, log;
+    scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
