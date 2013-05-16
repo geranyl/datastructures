@@ -33,9 +33,12 @@
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
 
+    <script src="lib/ds/linkedList.js"></script>
+
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/home/main.js"></script>
+
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -45,5 +48,20 @@
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
+
+
+
+  <script>
+      var ll = ds.linkedList();
+      ll.push('to');
+      console.log(ll)
+
+      ll.first = 20;
+      console.log(ll)
+      ll.trace();
+
+  </script>
+
+
   </body>
 </html>

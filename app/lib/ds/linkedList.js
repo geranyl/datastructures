@@ -1,88 +1,106 @@
-var DS = DS || {};
+var ds = ds || {};
 
-DS.LinkedList = {
+ds.linkedList = function () {
 
-    _Node: {
-        item: null,
-        next: null,
-        prev: null
-    },
+    function node() {
+        return {item: null, next: null, prev: null};
+    }
 
-    _first: null, //first node
-    _last: null, //last node
-    _length: 0, //number of items
+    function isEmpty() {
+        return _first === null;
+    }
 
-    unshift: function (item) {  //add one to start
+    var _first = null,
+        _last = null,
+        _length = 0;
 
-    },
 
-    shift: function () {   //remove one from start
-        if(this._length){
-            var item = this._first.item;
-            this._first = this._first.next;
-            this._first.prev = null;
-            if(this.isEmpty()) this._last = null;
-            this._length--;
+    var innerLL = {};
+
+    innerLL.unshift = function (item) {  //add one to start
+
+    }
+
+    innerLL.shift = function () {   //remove one from start
+        if (_length) {
+            var item = _first.item;
+            _first = _first.next;
+            _first.prev = null;
+            if (isEmpty()) _last = null;
+            _length--;
             return item;
         }
         return null;
 
-    },
+    }
 
-    push: function (item) { //add one to end
-        var oldlast = this._last;
-        this._last = Object.create(this._Node);
-        this._last.item = item;
-        this._last.next = null;
+    innerLL.push = function (item) { //add one to end
 
-        if (this.isEmpty()) {
-            this._first = this._last
+        var oldlast = _last;
+        _last = node();
+        _last.item = item;
+        _last.next = null;
+
+        if (isEmpty()) {
+            _first = _last
         } else {
-            oldlast.next = this._last;
-            this._last.prev = oldlast;
+            oldlast.next = _last;
+            _last.prev = oldlast;
         }
 
-        this._length++;
+        _length++;
 
-    },
+    }
 
-    pop: function () { //remove one from end
-        if(this._length){
-            var oldlast = this._last;
-            this._last = oldlast.prev;
-            if(!this._last){
-               this._first = this._last;
-            } else{
-                this._last.next = null;
+    innerLL.pop = function () { //remove one from end
+        if (_length) {
+            var oldlast = _last;
+            _last = oldlast.prev;
+            if (!_last) {
+                _first = _last;
+            } else {
+                _last.next = null;
             }
-            this._length--;
+            _length--;
             return oldlast.item;
         }
         return null;
-    },
+    }
 
-    isEmpty: function (){
-        return this._first === null;
-    },
-
-    toStringFwd: function(){
-       var str = '';
-       var cur = this._first;
-       while(cur){
-           str += cur.item.toString();
-           cur = cur.next;
-       }
-       return str;
-    },
-
-    toStringRev: function(){
+    innerLL.toStringFwd = function () {
         var str = '';
-        var cur = this._last;
-        while(cur){
+        var cur = _first;
+        while (cur) {
+            str += cur.item.toString();
+            cur = cur.next;
+        }
+        return str;
+    }
+
+    innerLL.toStringRev = function () {
+        var str = '';
+        var cur = _last;
+        while (cur) {
             str += cur.item.toString();
             cur = cur.prev;
         }
         return str;
     }
+
+    innerLL.__defineGetter__("length", function(){
+       return _length;
+    });
+
+
+    innerLL.__defineGetter__("first", function(){
+        return _first;
+    });
+
+
+    innerLL.__defineGetter__("last", function(){
+        return _last;
+    });
+
+    return innerLL;
 
 };

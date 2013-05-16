@@ -6,25 +6,25 @@ describe('DataStructures: Linked List Test', function () {
    var linkedList;
 
    beforeEach(function(){
-       linkedList = Object.create(DS.LinkedList); //new linked list before each "it"
+       linkedList = ds.linkedList(); //new linked list before each "it"
    })
 
     it('should result in a linked list 1 long', function () {
         linkedList.push('to');
-        expect(linkedList._first.prev).toBe(null);
-        expect(linkedList._first.next).toBe(null);
-        expect(linkedList._first).toEqual(linkedList._last);
-        expect(linkedList._length).toBe(1);
+        expect(linkedList.first.prev).toBe(null);
+        expect(linkedList.first.next).toBe(null);
+        expect(linkedList.first).toEqual(linkedList.last);
+        expect(linkedList.length).toBe(1);
     });
 
     it('should result in a linked list 3 long', function () {
         linkedList.push('to');
         linkedList.push('be');
         linkedList.push('or');
-        expect(linkedList._first.prev).toBe(null);
-        expect(linkedList._first.next.item).toBe('be');
-        expect(linkedList._first.next.prev.item).toBe('to');
-        expect(linkedList._length).toBe(3);
+        expect(linkedList.first.prev).toBe(null);
+        expect(linkedList.first.next.item).toBe('be');
+        expect(linkedList.first.next.prev.item).toBe('to');
+        expect(linkedList.length).toBe(3);
         expect(linkedList.toStringFwd()).toBe('tobeor');
         expect(linkedList.toStringRev()).toBe('orbeto');
     });
@@ -51,7 +51,7 @@ describe('DataStructures: Linked List Test', function () {
         linkedList.push('to');
         var item = linkedList.pop();
         expect(item).toBe('to');
-        expect(linkedList._length).toBe(0);
+        expect(linkedList.length).toBe(0);
     });
 
     it('should return the last when you pop a list - using two items', function(){
@@ -59,8 +59,8 @@ describe('DataStructures: Linked List Test', function () {
         linkedList.push('be');
         var item = linkedList.pop();
         expect(item).toBe('be');
-        expect(linkedList._length).toBe(1);
-        expect(linkedList._first.next).toBe(null);
+        expect(linkedList.length).toBe(1);
+        expect(linkedList.first.next).toBe(null);
     });
 
 
