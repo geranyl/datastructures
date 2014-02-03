@@ -36,6 +36,7 @@
     <script src="lib/ds/linkedList.js"></script>
 
     <!-- build:js scripts/scripts.js -->
+    <script src="scripts/lib/getset.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/home/main.js"></script>
 
@@ -52,13 +53,12 @@
 
 
   <script>
-      var ll = ds.linkedList();
+      var ll = new ds.linkedList();
       ll.push('to');
       console.log(ll)
 
-      ll.first = 20;
+      ll.first = 20; //no setter, so shouldn't overwrite it
       console.log(ll)
-      ll.trace();
 
   </script>
 

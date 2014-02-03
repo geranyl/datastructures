@@ -34,7 +34,7 @@ describe('DataStructures: Linked List Test', function () {
         expect(item).toBe(null);
     });
 
-    it('should return the first item you shift a populated list', function(){
+    it('should return the first item when you shift a populated list', function(){
         linkedList.push('to');
         linkedList.push('be');
         linkedList.push('or');
@@ -47,14 +47,14 @@ describe('DataStructures: Linked List Test', function () {
         expect(item).toBe(null);
     });
 
-    it('should return the last when you pop a list - one item', function(){
+    it('should return the last item when you pop a list - using one item', function(){
         linkedList.push('to');
         var item = linkedList.pop();
         expect(item).toBe('to');
         expect(linkedList.length).toBe(0);
     });
 
-    it('should return the last when you pop a list - using two items', function(){
+    it('should return the last item when you pop a list - using two items', function(){
         linkedList.push('to');
         linkedList.push('be');
         var item = linkedList.pop();

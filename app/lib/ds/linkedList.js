@@ -15,6 +15,9 @@ ds.linkedList = function () {
         _length = 0;
 
 
+    console.log('this is? ', this)
+
+
     var innerLL = {};
 
     innerLL.unshift = function (item) {  //add one to start
@@ -37,7 +40,7 @@ ds.linkedList = function () {
     innerLL.push = function (item) { //add one to end
 
         var oldlast = _last;
-        _last = node();
+        _last = new node();
         _last.item = item;
         _last.next = null;
 
@@ -87,19 +90,19 @@ ds.linkedList = function () {
         return str;
     }
 
-    innerLL.__defineGetter__("length", function(){
-       return _length;
-    });
 
+    addProperty(innerLL, 'length', function(){
+        return _length;
+    }, null);
 
-    innerLL.__defineGetter__("first", function(){
+    addProperty(innerLL, 'first', function(){
         return _first;
-    });
+    }, null);
 
-
-    innerLL.__defineGetter__("last", function(){
+    addProperty(innerLL, 'last', function(){
         return _last;
-    });
+    }, null);
+
 
     return innerLL;
 
